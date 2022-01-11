@@ -125,7 +125,6 @@ function takePage(data) {
         let heightFooter = hashtagFooter.clientHeight;
         hashtagBack.style.bottom = `${heightFooter - 10}px`;
         hashtagBtnBack.style.bottom = `${heightFooter - 10}px`;
-        hashtagBtnAdd.style.bottom = `${heightFooter - 10}px`; 
       }
 
       if (hashtagSearch) {
@@ -135,7 +134,9 @@ function takePage(data) {
           hashtagSearch.classList.add("active");
           hashtagSearchBig.textContent = " ";
           hashtagBtnAdd.classList.add("active");
-          hashtagBtnBack.classList.add("active");
+          setTimeout(() => {
+            hashtagBtnBack.classList.add("active");
+          }, 1000);
           const imgLarge = document.createElement("img");
           imgLarge.setAttribute("src", elem.largeImageURL);
           hashtagSearchBig.setAttribute("id", elem.id);
@@ -167,12 +168,11 @@ if (hashtagBtnAdd) {
     setTimeout(() => {
       hashtagBtnAdd.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "center",
       });
-    }, 1500);
+    }, 1000);
   });
 }
-
 
 function RandomPage(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -241,4 +241,3 @@ function thanks(data) {
     if (thank) thank.style.backgroundImage = `url(${img.largeImageURL})`;
   }
 }
-

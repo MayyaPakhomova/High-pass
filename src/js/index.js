@@ -87,18 +87,7 @@ if (formInput) {
     }
   });
 }
-const validate = document.querySelector(".js-validate");
-if (validate) {
-  new JustValidate(".js-validate", {
-    colorWrong: "#FF3030",
-    rules: {
-      mail: {
-        required: true,
-        email: true,
-      },
-    },
-  });
-}
+
 function onEntry(entry) {
   entry.forEach((change) => {
     if (change.isIntersecting) {
@@ -115,20 +104,6 @@ let elements = document.querySelectorAll(".element-animation");
 for (let elm of elements) {
   observer.observe(elm);
 }
-// const tl = gsap.timeline();
-// tl.fromTo(".second",{x: '-100%'}, {x: '-200%'})
-// // tl.fromTo('.third', {x: '-100%'}, {x: '-200%'})
-// // tl.fromTo('.fourth', {x: '-400%'}, {x: '-300%'})
-
-// const main = document.querySelector('.aboutus');
-// ScrollTrigger.create({
-// 	animation: tl,
-// 	trigger: '.about-us-subscribe__img',
-// 	start: 'top top',
-// 	end: () => main.offsetWidth / 2,
-// 	scrub: true,
-// 	pin: true
-// });
 
 class Modal {
   constructor(options) {
@@ -365,7 +340,18 @@ if (map) {
   });
 
 }
-
+const validate = document.querySelector(".js-validate");
+if (validate) {
+  new JustValidate(".js-validate", {
+    colorWrong: "#FF3030",
+    rules: {
+      mail: {
+        required: true,
+        email: true,
+      },
+    },
+  });
+}
 const valid = document.querySelector(".js-valid");
 if (valid) {
   new JustValidate(".js-valid", {
@@ -386,6 +372,7 @@ if (valid) {
 }
 
 const backTopBtn = document.querySelector('.back-top');
+if(backTopBtn){
 function toggleBtn() {
   let scroll = window.pageYOffset;
   //  let coords = document.documentElement.clientHeight;
@@ -402,3 +389,4 @@ function backTop() {
 }
 window.addEventListener('scroll', toggleBtn, true);
 backTopBtn.addEventListener('click', backTop, true);
+}
