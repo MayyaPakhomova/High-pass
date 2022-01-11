@@ -4,9 +4,18 @@
 .container {
   max-width: 768px;
 }
-
+.back-top {
+  &__svg{
+    &:hover:not(:focus-visible) {
+      fill: $white;
+      background:$orange;
+    }
+  }
+  &.active {
+    display: block;
+  }
+}
 .header-menu-logo {
-
   &.active {
     width: 166px;
   }

@@ -399,7 +399,19 @@ li {
   transition: opacity 1s;
   animation : photo .7s ease-in-out;
 }
-
+.back-top {
+  position: fixed;
+  bottom  : 80px;
+  right   : 40px;
+  z-index : 2;
+  display : none;
+  &__svg{
+    width: 60px;
+    height: 60px;
+    fill: $orange;
+    border-radius: 100%;
+    transform:  rotate(180deg);
+  }}
 .wrapper-page{
   display: flex;
 	flex-direction: column;

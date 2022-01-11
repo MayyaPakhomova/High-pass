@@ -384,3 +384,21 @@ if (valid) {
     },
   });
 }
+
+const backTopBtn = document.querySelector('.back-top');
+function toggleBtn() {
+  let scroll = window.pageYOffset;
+  //  let coords = document.documentElement.clientHeight;
+  if (scroll > 100) {
+    backTopBtn.classList.add('active');
+  }
+  if (scroll < 100) {
+    backTopBtn.classList.remove('active');
+  }
+}
+
+function backTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', toggleBtn, true);
+backTopBtn.addEventListener('click', backTop, true);
