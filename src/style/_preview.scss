@@ -60,14 +60,17 @@
     @include hashtag-wrapper(12px 7px, 10px 7px 10px auto, 32%);
     position: relative;
     cursor  : pointer;
+    @include transition;
 
     &-link {
       @include hashtag-link(12px, 14px);
+      @include transition;
     }
     &:hover:not(:focus-visible) {
       background-color: $white;
       .preview-content__hashtag-link {
         color: $twilightGray;
+        @include transition;
       }
     }
   }

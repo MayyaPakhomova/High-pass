@@ -6,7 +6,7 @@ const cleanCss = require("gulp-clean-css");
 const svgSprite = require("gulp-svg-sprite");
 const image = require("gulp-image");
 const webp = require('gulp-webp');
-const babel = require("gulp-babel");
+const fileInclude = require('gulp-file-include');
 const uglify = require("gulp-uglify-es").default;
 const notify = require("gulp-notify");
 const sass = require("gulp-sass")(require("sass"));
@@ -42,12 +42,26 @@ const svgSprites = () => {
     )
     .pipe(dest("dist/images"));
 };
+
+
+
+const htmlInclude = () => {
+  return src(['src/**/*.html'])
+    .pipe(fileInclude())
+    .pipe(dest("dist"))
+    .pipe(browserSync.stream());
+}
+
+
 const imagesDev = () => {
-  return src(["src/img/**/*.jpg", "src/img/**/*.jpeg","src/img/social/*.svg"])
+  return src(["src/img/**/*.jpg", "src/img/**/*.png", "src/img/**/*.jpeg", "src/img/**/*.svg"])
     .pipe(image())
     .pipe(webp())
     .pipe(dest("dist/images"));
 };
+
+
+
 const imagesPng= () => {
   return src(["src/img/**/*.png"])
     .pipe(image())
@@ -94,9 +108,11 @@ watch("src/style/**/*.scss", stylesDev);
 watch("src/images/svg/**/*.svg", svgSprites);
 watch("src/js/**/*.js", scriptsDev);
 watch("src/fonts/**", fonts);
+watch("src/**/*.html", htmlInclude);
 
 exports.clean = clean;
 exports.svgSprites = svgSprites;
+exports.html = htmlInclude;
 
 exports.dev = series(
   clean,
@@ -107,6 +123,7 @@ exports.dev = series(
   stylesDev,
   imagesDev,
   svgSprites,
+  htmlInclude,
   phpmailer,
   phpDev,
   imagesPng,
@@ -126,6 +143,8 @@ const stylesBuild = () => {
     .pipe(
       autoprefixer({
         cascade: false,
+        grid: true,
+        overrideBrowserslist: ["last 5 versions"]
       })
     )
     .pipe(
@@ -162,6 +181,7 @@ exports.build = series(
   scriptsBuild,
   stylesBuild,
   imagesBuild,
+  htmlInclude,
   phpmailer,
   phpDev,
   imagesPng,

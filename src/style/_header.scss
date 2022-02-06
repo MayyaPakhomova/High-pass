@@ -91,21 +91,21 @@
 
 .header-menu-burger.active span {
   opacity   : 0;
-  transition: .4s ease-in-out
+   @include transition;
 }
 
 .header-menu-burger.active:before {
   width     : 29px;
   transform : rotate(45deg);
   top       : 29px;
-  transition: .4s ease-in-out
+   @include transition;
 }
 
 .header-menu-burger.active:after {
   width     : 29px;
   transform : rotate(-45deg);
   top       : 29px;
-  transition: .4s ease-in-out
+   @include transition;
 }
 
 
@@ -126,7 +126,7 @@
         height    : 1px;
         right     : -21px;
         top       : 30px;
-        transition: .5s;
+        @include transition;
       }
     }
   }
@@ -164,11 +164,11 @@
     width     : 23px;
     height    : 23px;
     fill      : $white;
-    transition: .5s;
+    @include transition;
 
     &.active {
       opacity   : 0;
-      transition: .5s;
+      @include transition;
       transform : translateX(50px);
       height    : 0;
       width     : 0;
@@ -195,13 +195,12 @@
 
 .header-menu-logo {
   opacity   : 1;
-  transition: .5s;
+  @include transition;
 
   &.active {
     opacity   : 0;
     transform : translateX(-50px);
-    transition: .5s;
-
+    @include transition;
   }
 }
 
@@ -211,7 +210,7 @@
   background-color: $blackBrown;
   padding         : 47px 27px 0 20px;
   height          : 84vh;
-  transition      : .4s ease-in-out;
+  @include transition;
 
   &__item:not(:nth-child(5n)) {
     margin-bottom: 31px;

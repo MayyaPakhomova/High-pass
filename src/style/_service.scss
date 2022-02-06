@@ -69,16 +69,17 @@
     font-size  : 14px;
     line-height: 28px;
     color      : $orange;
-    transition : .3s ease-in-out;
+    cursor: pointer;
+    @include transition;
 
     &:hover:not(:focus-visible) {
       transform : translateX(5px);
-      transition: .3s ease-in-out;
+       @include transition;
     }
 
     &:focus-visible {
       transform : translateX(7px);
-      transition: .3s ease-in-out;
+       @include transition;
       color     : $pearlOrange;
 
       .service-content-left__btn-svg {
@@ -88,7 +89,7 @@
 
     &:active:not(:focus-visible) {
       transform : translateX(7px);
-      transition: .3s ease-in-out;
+       @include transition;
       color     : $blackBrown;
 
       .service-content-left__btn-svg {
@@ -143,12 +144,12 @@
 
     &:hover:not(:focus-visible) {
       transform : translateX(7px);
-      transition: .3s ease-in-out;
+       @include transition;
     }
 
     &:focus-visible {
       transform : translateX(7px);
-      transition: .3s ease-in-out;
+       @include transition;
       color     : $pearlOrange;
 
       .service-content-right__btn-svg {
@@ -158,7 +159,7 @@
 
     &:active:not(:focus-visible) {
       transform : translateX(7px);
-      transition: .3s ease-in-out;
+       @include transition;
       color     : $blackBrown;
 
       .service-content-right__btn-svg {

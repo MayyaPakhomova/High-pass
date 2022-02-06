@@ -33,7 +33,7 @@
 
 .header-menu-logo {
   opacity   : 1;
-  transition: .5s;
+  @include transition;
 
   &.active {
     opacity  : 1;

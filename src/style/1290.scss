@@ -50,14 +50,17 @@
 
 .header-list {
   margin-left: 0px;
+  @include transition;
 
   &__item:not(:nth-child(5n)) {
     margin-right: 79px;
+    @include transition;
   }
 
   &__link {
     &:hover:not(:focus-visible) {
       color: $orange;
+      @include transition;
     }
   }
 }
@@ -302,21 +305,26 @@
   left        : 50%;
   margin-right: -50%;
   transform   : translate(-50%, -50%);
+  @include transition;
 
   &__address {
     &:hover:not(:focus-visible) {
       color: $orange;
+      @include transition;
     }
   }
 
   &__phone {
     color: $white;
+    @include transition;
 
     &:hover:not(:focus-visible) {
       color: $orange;
+      @include transition;
 
       .map-address__phone-svg {
         fill: $orange;
+        @include transition;
       }
     }
 

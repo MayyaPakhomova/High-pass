@@ -21,7 +21,6 @@
     font-size   : 24px;
     font-weight : 700;
     outline     : 0;
-    transition  : 0.7s linear;
     text-align  : center;
     color       : $darkOrange;
     top         : 50%;
@@ -30,6 +29,7 @@
     transform   : translate(-50%, -50%);
     z-index     : 2;
     filter: none;
+    @include transition;
   
     &:hover:not(:focus-visible) {
       ~.thank__wrapper {

@@ -65,18 +65,21 @@ tLine.from(".animation-one", { duration: 0.7, x: -100, opacity: 0 });
 tl.from(".animation-two", { duration: 0.7, x: 100, opacity: 0 });
 tlin.from(".animation-three", { duration: 0.7, y: 100, opacity: 0 });
 
-const aboutusText = document.querySelector(".about-us__info");
-if (aboutusText) {
-  aboutusText.textContent =
+const aboutText = document.querySelector(".about-us__info");
+if (aboutText) {
+  aboutText.textContent =
     "В рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий фиксирует необходимость распределения внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально-технической и кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и нарушающими общечеловеческие нормы этики.";
 
-  aboutusText.addEventListener("click", () => {
-    aboutusText.classList.toggle("active");
+  aboutText.addEventListener("click", () => {
+    aboutText.classList.toggle("active");
   });
 }
 
+// value="ТЕКСТ" onfocus="if (value == 'ТЕКСТ') {value = ''}" onblur="if (value == '') {value = 'ТЕКСТ'}" 
+
 const thankText = document.querySelector(".thank__text");
 const formInput = document.querySelectorAll(".js-input");
+const inputAbout = document.querySelector(".subscribe__input");
 if (formInput) {
   formInput.forEach((input) => {
     if (thankText) {
@@ -87,7 +90,14 @@ if (formInput) {
     }
   });
 }
-
+if (inputAbout) {
+  inputAbout.addEventListener('focus',()=>{
+    inputAbout.value = ' '
+  })
+  inputAbout.addEventListener('blur',()=>{
+    inputAbout.value = 'E-mail '
+  })
+}
 function onEntry(entry) {
   entry.forEach((change) => {
     if (change.isIntersecting) {

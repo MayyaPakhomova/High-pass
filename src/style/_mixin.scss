@@ -1,3 +1,7 @@
+@mixin transition {
+  transition: all .4s ease-in-out
+}
+
 @mixin burger {
   position  : absolute;
   content   : '';
@@ -23,10 +27,12 @@
     border        : 1px solid $white;
     outline       : 2px solid $blackBrown;
     outline-offset: 1px;
+    @include transition;
   }
 
   &:active:not(:focus-visible) {
     color: $orange;
+    @include transition;
   }
 }
 
@@ -61,18 +67,22 @@
   background : $orange;
   color      : $white;
   cursor     : pointer;
+  @include transition;
 
   &:hover:not(:focus-visible) {
     border: 3px solid $orange;
     background : transparent;
+    @include transition;
   }
 
   &:focus-visible {
     border: 3px solid $darkOrange;
+    @include transition;
   }
 
   &:active:not(:focus-visible) {
     background-color: $darkOrange;
+    @include transition;
   }
 }
 
@@ -89,17 +99,21 @@
   color           : $white;
   border          : 3px solid $orange;
   cursor          : pointer;
+  @include transition;
 
   &:hover:not(:focus-visible) {
     background-color: $orange;
+    @include transition;
   }
 
   &:focus-visible {
     background-color: $pearlOrange;
+    @include transition;
   }
 
   &:active:not(:focus-visible) {
     background-color: $darkOrange;
+    @include transition;
   }
 }
 
@@ -118,6 +132,7 @@
   color      : $blackBrown;
   border     : 3px solid $orange;
   cursor     : pointer;
+  @include transition;
 
   &.active {
     display: none;
@@ -125,14 +140,17 @@
 
   &:hover:not(:focus-visible) {
     background-color: $orange;
+    @include transition;
   }
 
   &:focus-visible {
     background-color: $pearlOrange;
+    @include transition;
   }
 
   &:active:not(:focus-visible) {
     background-color: $darkOrange;
+    @include transition;
   }
 }
 
@@ -152,9 +170,11 @@
   border     : 3px solid $orange;
   cursor     : pointer;
   color      : $blackBrown;
+  @include transition;
 
   &:hover:not(:focus-visible) {
     color: $white;
+    @include transition;
   }
 
   &:focus-visible {
@@ -163,6 +183,7 @@
 
   &:active:not(:focus-visible) {
     background-color: $darkOrange;
+    @include transition;
   }
 }
 

@@ -21,7 +21,7 @@
 
 .header-list {
   margin-left: 82px;
-  transition : .5s;
+  @include transition;
 
   &__item:not(:nth-child(5n)) {
     margin-right: 33px;
@@ -34,7 +34,7 @@
 
 .hidden {
   opacity   : 0;
-  transition: .5s;
+  @include transition;
   transform : translateY(50px);
   height    : 0;
   width     : 0;
